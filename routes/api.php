@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/notLoggedIn', function () {
     return ["message" => "you are not logged in"];
+});
+
+// api/v1
+Route::group((['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1']), function () {
+    Route::apiResources([
+        'customers' => CustomerController::class,
+        'invoices' => InvoiceController::class
+    ]);
+
 });
