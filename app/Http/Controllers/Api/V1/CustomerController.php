@@ -55,7 +55,7 @@ class CustomerController extends Controller
      */
     public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //
+        return $customer->update($request->all());
     }
 
     /**
