@@ -23,11 +23,11 @@ Route::get('/notLoggedIn', function () {
 });
 
 // api/v1
-Route::group((['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1']), function () {
+Route::group((['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1', 'middleware' => 'auth:sanctum']), function () {
     Route::apiResources([
         'customers' => CustomerController::class,
         'invoices' => InvoiceController::class
     ]);
-    Route::post('invoices/bulk', ['uses'=> 'InvoiceController@bulkStore']);
+    Route::post('invoices/bulk', ['uses' => 'InvoiceController@bulkStore']);
 
 });
