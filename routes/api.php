@@ -28,5 +28,6 @@ Route::group((['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1']),
         'customers' => CustomerController::class,
         'invoices' => InvoiceController::class
     ]);
+    Route::post('invoices/bulk', ['uses'=> 'InvoiceController@bulkStore']);
 
 });
