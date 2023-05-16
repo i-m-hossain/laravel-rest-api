@@ -37,6 +37,6 @@ Route::group(
             'products' => ProductController::class
         ]);
         Route::post('invoices/bulk', ['uses' => 'InvoiceController@bulkStore']);
-
+        Route::get('/products/search/{name}', ['uses' => 'ProductController@search']);
     }
 );
