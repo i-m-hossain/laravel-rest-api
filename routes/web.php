@@ -30,6 +30,7 @@ Route::get('/setup', function () {
         $user->password = Hash::make($credentials['password']);
         $user->save();
         if (Auth::attempt($credentials)) {
+            /** @var \App\Models\User $user **/ //type annotation for createToken method(intelephense error resolve)
             $user = Auth::user();
             $adminToken = $user->createToken('admin-token', ['create', 'update', 'delete']);
             $updateToken = $user->createToken('update-token', ['create', 'update']);
