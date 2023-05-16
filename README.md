@@ -1,5 +1,5 @@
 {
-"admin": "1|AIZnh5DIyZmGB8U2LJHfA4Ib9Yc3EsWxJs1K6Zpa",
-"update": "2|JWg9ZDSbpkhZI6ZvwPL7QidbRRKEeHPiLfCXrLLo",
-"basic": "3|RLT5NyDSDtQLevyQlhowfsUnB5ULZfnYuEm03sGI"
+    "admin": "1|5dg1kAjjFtmCOeZMkKHw4WA9KCIEZJ5UtedXMkO7",
+    "update": "2|OOS3pwA8d4yUnEGBSk89HuMc5qVwBDT7eocEyiV5",
+    "basic": "3|9Jn9E4JljTQFpTvgD62ukhbtSs9LE7RpM11Tlmi6"
 }
