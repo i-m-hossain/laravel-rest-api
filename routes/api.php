@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,12 +22,24 @@ Route::get('/notLoggedIn', function () {
     return ["message" => "you are not logged in"];
 });
 
-// api/v1
+// public routes
 Route::group(
     ([
         'prefix' => 'v1',
         'namespace' => 'App\Http\Controllers\Api\V1',
-        // 'middleware' => 'auth:sanctum'
+    ]),
+    function () {
+        Route::post('register', ['uses' => 'AuthController@register']);
+        Route::post('login', ['uses' => 'AuthController@login']);
+    }
+);
+
+// protected routes
+Route::group(
+    ([
+        'prefix' => 'v1',
+        'namespace' => 'App\Http\Controllers\Api\V1',
+        'middleware' => ['auth:sanctum']
     ]),
     function () {
         Route::apiResources([
@@ -38,5 +49,6 @@ Route::group(
         ]);
         Route::post('invoices/bulk', ['uses' => 'InvoiceController@bulkStore']);
         Route::get('/products/search/{name}', ['uses' => 'ProductController@search']);
+        Route::get('/logout', [App\Http\Controllers\Api\V1\AuthController::class, 'logout']);
     }
 );
